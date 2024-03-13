@@ -41,7 +41,7 @@ jobs:
         run: |
           git clone https://${{ secrets.USERNAME_TOKEN}}:${{ secrets.PIPELINE_TOKEN }}@github.com/giddy87/test-gitops.git
           cd test-gitops 
-          sed -i "s/vue:webapp-.*/vue:webapp-${{ github.sha }}/g" springboot/deployment.yaml
+          sed -i "s/springboot:app-.*/springboot:app-${{ github.sha }}/g" springboot/deployment.yaml
           cat springboot/deployment.yaml
           git add springboot/deployment.yaml
           git commit -m "springboot test app Dev env k8s manifest file"
